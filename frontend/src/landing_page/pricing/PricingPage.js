@@ -7,7 +7,7 @@ function PricingPage() {
   return (
     <>
     <Hero/>
-    <OpenAccount/>
+  <OpenAccount/>
     <Brokerage/>
     </>
   )
