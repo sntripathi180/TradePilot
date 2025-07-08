@@ -24,6 +24,10 @@ function Funds() {
               <p>Used margin</p>
               <p className="imp">4,842.43</p>
             </div>
+            <div className="data">
+              <p>Available cash</p>
+              <p className="imp">4,043.10</p>
+            </div>
             <hr />
             <div className="data">
               <p>Opening Balance</p>

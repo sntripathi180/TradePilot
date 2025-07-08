@@ -3,7 +3,7 @@ import { positions } from "../data/data";
 const Positions = () => {
   return (
     <>
-      <h3>Positions ({positions.length})</h3>
+      <h3 className="title">Positions ({positions.length})</h3>
       <div className="order-table">
         <table>
           <tr>

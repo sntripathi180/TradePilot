@@ -1,26 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { VerticalGraph } from "./VerticalGraph";
+import axios, { all } from "axios";
+import { holdings } from "../data/data";
 
 function Holdings() {
   const [allHoldings, setAllHoldings] = useState([]);
 
-  useEffect(() => {});
+  // useEffect(() => {
+  //   axios.get("http://localhost:3002/allHoldings").then((res)=>{
+  //     setAllHoldings(res.data);
+  //   })
+  // },[]);
 
-  const labels = allHoldings.map((subArray) => subArray["name"]);
+  const labels = holdings.map((subArray) => subArray["name"]);
 
   const data = {
     labels,
     datasets: [
       {
         label: "Stock Price",
-        data: allHoldings.map((stock) => stock.price),
+        data: holdings.map((stock) => stock.price),
         backgroundColor: "rgba(255,99,132,0.5)",
       },
     ],
   };
   return (
     <>
-      <h3 className="title"> Holdings ({allHoldings.length})</h3>
+      <h3 className="title"> Holdings ({holdings.length})</h3>
       <div className="order-table">
         <table>
           <tr>
@@ -34,14 +40,14 @@ function Holdings() {
             <th>Day chg.</th>
           </tr>
 
-          {allHoldings.map((stock, index) => {
+          {holdings.map((stock, index) => {
             const curValue = stock.price * stock.qty;
             const isProfit = curValue - stock.avg * stock.qty >= 0.0;
             const profClass = isProfit ? "profit" : "loss";
             const dayClass = stock.isLoss ? "loss" : "profit";
 
             return (
-              <tr key={index}>
+              <tr key={index} >
                 <td>{stock.name}</td>
                 <td>{stock.qty}</td>
                 <td>{stock.avg.toFixed(2)}</td>
@@ -62,6 +68,12 @@ function Holdings() {
         <div className="col">
           <h5>
             29,875.<span>55</span>
+          </h5>
+           <p>Total investment</p>
+        </div>
+        <div className="col">
+          <h5>
+            31,428.<span>95</span>{" "}
           </h5>
           <p>Current value</p>
         </div>

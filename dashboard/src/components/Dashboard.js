@@ -7,7 +7,7 @@ import Orders from './Orders'
 import Holdings from './Holdings'
 import Positions from './Positions'
 import Funds from './Funds'
-import App from './Apps'
+import Apps from './Apps'
 
 const Dashboard = () => {
   return (
@@ -22,7 +22,7 @@ const Dashboard = () => {
                 <Route path='/holdings' element={<Holdings/>}/>
                 <Route path='/positions' element={<Positions/>}/>
                 <Route path='/funds' element={<Funds/>}/>
-                <Route path='/apps' element={<App/>}/>
+                <Route path='/apps' element={<Apps/>}/>
             </Routes>
         </div>
     </div>
